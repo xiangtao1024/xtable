@@ -1,0 +1,95 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>xtable - 级联表单demo</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style type="text/css">
+        .province-head-bg1{
+            background: rgba(59, 55, 55, 0.801);
+            color: #b0f0b0;
+        }
+        .province-head-bg2{
+            background: rgba(141, 115, 115, 0.8);
+            color: #361a2b;
+        }
+    </style>
+</head>
+<body>
+<table border="1" id="mytable">
+     
+</table>
+</body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="./jquery-xtable.js"></script>
+<script type="text/javascript" src="./data.js"></script>
+<script type="text/javascript">
+    var option = {
+        stopShowKey: "gdp1.a", //后面表格显示的key,可以根据要显示的Key 再数据里配合stopCascade使用
+        head: [ //标题头
+            {
+                name: "省", //头显示的文字
+                //style: "", 这里也可以单独加style样式
+                class: "province-head-bg1", //给标题加的css样式
+            },
+            {
+                name: "市",
+                class: "province-head-bg1", //给标题加的css样式
+            },
+            {
+                name: "县",
+                class: "province-head-bg1", //给标题加的css样式
+            },
+            {
+                name:"区/乡/镇",
+                class: "province-head-bg1", //给标题加的css样式
+            },
+            {
+                name:"村",
+                class: "province-head-bg1", //给标题加的css样式
+            }
+            ,
+            {
+                name:"2017年",
+                class: "province-head-bg2", //给标题加的css样式
+            }
+            ,
+            {
+                name:"2018年",
+                class: "province-head-bg2", //给标题加的css样式
+            }
+            ,
+            {
+                name:"2019年",
+                class: "province-head-bg2", //给标题加的css样式
+            }
+            ,
+            {
+                name:"操作",
+                //class: "province-head-bg2", //给标题加的css样式
+                style: "color: red",
+            }
+        ],
+        buttons:[ // 每个数据后面的自定义按钮
+            {
+                name:"编辑",
+                style:"background-color: green; width: 80px;height:38px;color:#fff", //也可以加style 或者class
+                click:function(e){
+                    console.log(e);
+                }
+            }, {
+                name:"删除",
+                style:"background-color: green; width: 80px;height:38px;color:#fff",
+                click:function(e){
+                    console.log(e);
+                }
+            }
+        ],
+        "data": province //显示的数据 在data.js里
+    };
+    $.XTable.setOption(option); //设置option
+    $.XTable.show("mytable"); //显示的table标签id
+</script>
+ 
+</html>
